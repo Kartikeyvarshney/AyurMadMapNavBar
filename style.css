@@ -1,0 +1,247 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bar-width: 40px;
+    --bar-height: 6px;
+    --hamburger-gap: 5px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height)*3 + var(--hamburger-gap)*2);
+    --x-width: calc(var(--hamburger-height)*1.41421356237);
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+html {
+    font-size: 62.5%;
+    /* Now 1 rem is equal to 10pxs*/
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+*::-moz-selection {
+    /* Code for Firefox */
+    color: white;
+    background: green;
+}
+
+*::selection {
+    color: white;
+    background: green;
+}
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    font-size: 20px;
+    background-image: linear-gradient(to right, #028A0F, #AEF359);
+    background-image: -moz-linear-gradient(to right, #028A0F, #AEF359);
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav a:hover {
+    color: darkgreen;
+}
+
+#Logo {
+    height: 6rem;
+    width: 10rem;
+}
+
+#search-bar {
+    position: relative;
+    width: 20rem;
+    height: 2.5rem;
+}
+
+.search-field {
+    width: 100%;
+    min-width: 50%;
+    height: 100%;
+    border-radius: 9rem;
+}
+
+.search-button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-top: 1.2rem;
+    margin-left: -2.2rem;
+}
+
+.signup {
+    height: 4rem;
+    width: 10rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    border-radius: 5rem;
+    background: limegreen;
+}
+
+.signup:hover {
+    color: green;
+    background: rgb(26, 199, 26);
+}
+
+aside {
+    position: absolute;
+    margin-top: 10vh;
+    height: 50vh;
+    width: 200px;
+    background: lightgreen;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    z-index: 100;
+    /* transition:  var(--animation-timing); */
+}
+
+aside a {
+    text-decoration: none;
+    color: white;
+    margin: 10px 0px;
+}
+
+aside .search-button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    left: 100%;
+    top: -25%;
+}
+
+aside .search-field {
+    width: 100%;
+    min-width: 50%;
+    height: 100%;
+    border-radius: 9rem;
+}
+
+aside #search-bar {
+    position: relative;
+    width: 80%;
+    height: 7.5%;
+    display: flex;
+}
+
+aside a:hover {
+
+    color: darkgreen;
+}
+
+aside.active {
+    translate: 80vw;
+    display: flex;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: relative;
+    z-index: 10;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    display: none;
+    content: '';
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: green;
+    border-radius: 999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing);
+
+}
+
+.hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+
+}
+
+.hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0px;
+}
+
+main{
+    position: relative;
+    top: 10vh;
+}
+@media screen and (max-width:780px) {
+
+    nav .desktop-nav {
+        display: none;
+    }
+
+    .hamburger-menu::before,
+    .hamburger-menu::after,
+    .hamburger-menu input {
+        display: block;
+    }
+    .button_2{
+        visibility: collapse;
+    }
+
+}
+
+@media screen and (max-width: 460px) {
+
+    .hamburger-menu::before,
+    .hamburger-menu::after,
+    .hamburger-menu input {
+        display: block;
+    }
+
+    .button {
+        display: none;
+    }
+    .button_2{
+        visibility: visible;
+    }
+
+}
