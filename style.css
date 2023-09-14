@@ -45,7 +45,7 @@ body {
 nav {
     position: fixed;
     z-index: 1000;
-    height: 10vh;
+    height: 90px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -54,6 +54,8 @@ nav {
     font-size: 20px;
     background-image: linear-gradient(to right, #028A0F, #AEF359);
     background-image: -moz-linear-gradient(to right, #028A0F, #AEF359);
+    max-width: 100%;
+    
 }
 
 nav a {
@@ -63,6 +65,9 @@ nav a {
 
 nav a:hover {
     color: darkgreen;
+}
+nav .desktop-nav{
+    white-space: nowrap;
 }
 
 #Logo {
@@ -75,12 +80,28 @@ nav a:hover {
     width: 20rem;
     height: 2.5rem;
 }
+#search-bar-aside
+{
+    position: relative;
+    width: 200px;
+    height: 20px;
+}
 
+.search-button-aside
+{
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-top: 8px;
+    margin-left: -22px;
+}
 .search-field {
     width: 100%;
     min-width: 50%;
     height: 100%;
     border-radius: 9rem;
+    padding-left: 10px;
 }
 
 .search-button {
@@ -88,8 +109,8 @@ nav a:hover {
     background: transparent;
     border: none;
     outline: none;
-    margin-top: 1.2rem;
-    margin-left: -2.2rem;
+    margin-top: 9px;
+    margin-left: -22px;
 }
 
 .signup {
@@ -108,16 +129,17 @@ nav a:hover {
 
 aside {
     position: absolute;
-    margin-top: 10vh;
-    height: 50vh;
-    width: 200px;
+    translate:0  -300px;
+    margin-top: 90px;
+    height: 300px;
+    width: 100vw;
     background: lightgreen;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 20px;
     z-index: 100;
-    /* transition:  var(--animation-timing); */
+    transition: translate var(--animation-timing);
 }
 
 aside a {
@@ -126,13 +148,13 @@ aside a {
     margin: 10px 0px;
 }
 
-aside .search-button {
+aside .search-button-aside {
     position: absolute;
     background: transparent;
     border: none;
     outline: none;
     left: 100%;
-    top: -25%;
+    margin-top: 5.5%;
 }
 
 aside .search-field {
@@ -155,8 +177,8 @@ aside a:hover {
 }
 
 aside.active {
-    translate: 80vw;
     display: flex;
+    translate: 0;
 }
 
 .hamburger-menu {
@@ -210,7 +232,7 @@ aside.active {
 
 main{
     position: relative;
-    top: 10vh;
+    top: 100px;
 }
 @media screen and (max-width:780px) {
 
